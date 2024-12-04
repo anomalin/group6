@@ -44,7 +44,7 @@
                 <archive>
                     <manifest>
                         <mainClass>
-                            se.yrgo.Main
+                            se.yrgo.store.ui.Main
                         </mainClass>
                     </manifest>
                 </archive>
