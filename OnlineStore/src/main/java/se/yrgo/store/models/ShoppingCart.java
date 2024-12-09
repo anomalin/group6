@@ -1,6 +1,7 @@
 package se.yrgo.store.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Damir Dominkovic
@@ -10,20 +11,33 @@ import java.util.ArrayList;
  * this class represent a class that holds a list of products
  */
 public class ShoppingCart {
-    private List<Product> products;
+    private final List<Product> products;
+
+    public ShoppingCart() {
+        this.products = new ArrayList<>();
+
+    }
 
     /**
      * constructor to initialize an empty shopping cart
      */
     public ShoppingCart(List<Product> products) {
-        this.products = new ArrayList<>();
+        if (products == null) {
+            throw new IllegalArgumentException("products cannot be null");
+        }
+        this.products = new ArrayList<>(products);
     }
+
+
 
     /**
      * adds a product to the shopping cart
      * @param productId is the product to be added to the cart
      */
     public void addProduct(Product productId) {
+        if (productId == null) {
+            throw new IllegalArgumentException("productId cannot be null");
+        }
         products.add(productId);
     }
 
@@ -43,7 +57,7 @@ public class ShoppingCart {
     public double calculateTotalCost() {
         double totalCost = 0.0;
         for (Product product : products) {
-            totalCost += product.getPrice();
+            totalCost += product.getPrice() * product.getQuantity();
         }
         return totalCost;
     }
