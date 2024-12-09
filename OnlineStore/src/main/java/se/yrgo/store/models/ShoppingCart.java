@@ -21,19 +21,19 @@ public class ShoppingCart {
 
     /**
      * adds a product to the shopping cart
-     * @param product is the product to be added to the cart
+     * @param productId is the product to be added to the cart
      */
-    public void addProduct(Product product) {
-        products.add(product);
+    public void addProduct(Product productId) {
+        products.add(productId);
     }
 
     /**
      * removes a product from the shopping cart
-     * @param product is the product to be removed from the cart
+     * @param productId is the product to be removed from the cart
      * @return returns true if the product was successfully removed and false if not
      */
-    public boolean removeProduct(Product product) {
-        return products.remove(product);
+    public boolean removeProduct(Product productId) {
+        return products.remove(productId);
     }
 
     /**
