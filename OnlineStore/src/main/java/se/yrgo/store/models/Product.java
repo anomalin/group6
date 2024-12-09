@@ -1,10 +1,27 @@
 package se.yrgo.store.models;
 
 public class Product {
-    int productId;
-    String name;
-    double price;
-    int quantity;
+
+    private int productId;
+    private String name;
+    private double price;
+    private int quantity;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 
     public Product(int productId, String name, double price, int quantity) {
         this.productId = productId;
