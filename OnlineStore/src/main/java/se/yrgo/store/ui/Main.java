@@ -12,12 +12,12 @@ public class Main {
 
         List<Product> products = new ArrayList<Product>();
 
-        Product jeans = new Product(1212, "Levi's Blue", 999.90, 20);
-        Product sweater = new Product(1244, "Lyle & Scott", 850.00, 20);
-        Product underwear = new Product(1313, "Calvin Klein", 199.90, 20);
-        Product socks = new Product(2211, "Happy socks", 99.90, 20);
-        Product hoodie = new Product(1344, "Nike hoodie", 599.00, 20);
-        Product tshirt = new Product(1414, "Gucci basic", 1500.00, 20);
+        Product jeans = new Product(1212, "Jeans", 999.90, 20);
+        Product sweater = new Product(1244, "Sweater", 850.00, 20);
+        Product underwear = new Product(1313, "Underwear", 199.90, 20);
+        Product socks = new Product(2211, "Socks", 99.90, 20);
+        Product hoodie = new Product(1344, "Hoodie", 599.00, 20);
+        Product tshirt = new Product(1414, "Tshirt", 1500.00, 20);
 
         products.add(jeans);
         products.add(sweater);
