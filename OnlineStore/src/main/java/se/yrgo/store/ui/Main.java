@@ -1,6 +1,7 @@
 package se.yrgo.store.ui;
 
 import se.yrgo.store.models.Product;
+import se.yrgo.store.models.ShoppingCart;
 
 import java.util.ArrayList;
 import java.util.List;
