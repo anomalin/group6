@@ -1,5 +1,6 @@
 package se.yrgo.store.ui;
 
+import se.yrgo.store.models.Customer;
 import se.yrgo.store.models.Product;
 import se.yrgo.store.models.ShoppingCart;
 
@@ -27,62 +28,116 @@ public class Main {
         products.add(tshirt);
 
 
-        Scanner scanner = new Scanner(System.in);
-
-        ShoppingCart cart = new ShoppingCart();
-
-
+        try (Scanner scanner = new Scanner(System.in)) {
 
             System.out.println("Welcome to the online store!");
-            System.out.println("Please choose an option:");
-            System.out.println("1. View available products");
-            System.out.println("2. Add a new product");
-            System.out.println("3. Remove a product");
-            System.out.println("4. View shopping cart");
-            System.out.println("5. See the total cost");
-            System.out.println("6. Exit to pay");
+            System.out.println("Please register, enter your name: ");
+            String name = scanner.nextLine();
+            System.out.println("Please write your email address");
+            String email = scanner.nextLine();
+            Customer customer = new Customer(name, email);
+            ShoppingCart cart = new ShoppingCart();
+            System.out.println("These are our available products: ");
+            for (Product product : products) {
+                System.out.println(product);
+            }
+            System.out.println("Please choose an option, press 0 to exit:");
+            System.out.println("1. Add a new product");
+            System.out.println("2. Remove a product");
+            System.out.println("3. View shopping cart");
+            System.out.println("4. See the total cost");
+            System.out.println("5. Place an order");
+            System.out.println("6. View your order history");
 
             int choice = scanner.nextInt();
 
-            switch (choice) {
-                case 1:
-                    System.out.println("Available products:");
-                    for (Product product : products) {
-                        System.out.println(product);
-                        break;
-                    }
-                    case 2:
-                        System.out.println("Add a new product");
+            do {
+
+                switch (choice) {
+                    case 1:
+                        System.out.println("Add a product to your cart");
                         System.out.println("Please enter the name of the product:");
-                        String name  = scanner.next();
-                        cart.addProduct(product);
+                        String productName = scanner.nextLine();
+                        if (productName.equalsIgnoreCase("jeans")) {
+                            cart.addProduct(jeans);
+                            System.out.println("Jeans added to cart");
+                        } else if (productName.equalsIgnoreCase("sweater")) {
+                            cart.addProduct(sweater);
+                            System.out.println("Sweater added to cart");
+                        } else if (productName.equalsIgnoreCase("underwear")) {
+                            cart.addProduct(underwear);
+                            System.out.println("Underwear added to cart");
+                        } else if (productName.equalsIgnoreCase("socks")) {
+                            cart.addProduct(socks);
+                            System.out.println("Socks added to cart");
+                        } else if (productName.equalsIgnoreCase("hoodie")) {
+                            cart.addProduct(hoodie);
+                            System.out.println("Hoodie added to cart");
+                        } else if (productName.equalsIgnoreCase("tshirt")) {
+                            cart.addProduct(tshirt);
+                            System.out.println("T-shirt added to cart");
+                        } else {
+                            System.out.println("Sorry, we can't find the specified item");
+                        }
                         break;
 
-                        case 3:
-                            System.out.println("Remove a product");
-                            System.out.println("Please enter the name of the product:");
-                            String name1 = scanner.nextLine();
-                            cart.removeProduct();
-                            break;
+                    case 2:
+                        System.out.println("Remove a product");
+                        System.out.println("Please enter the name of the product:");
+                        String productNameR = scanner.nextLine();
+                        if (productNameR.equalsIgnoreCase("jeans")) {
+                            cart.removeProduct(jeans);
+                            System.out.println("Jeans removed from cart");
+                        } else if (productNameR.equalsIgnoreCase("sweater")) {
+                            cart.removeProduct(sweater);
+                            System.out.println("Sweater removed from cart");
+                        } else if (productNameR.equalsIgnoreCase("underwear")) {
+                            cart.removeProduct(underwear);
+                            System.out.println("Underwear removed from cart");
+                        } else if (productNameR.equalsIgnoreCase("socks")) {
+                            cart.removeProduct(socks);
+                            System.out.println("Socks removed from cart");
+                        } else if (productNameR.equalsIgnoreCase("hoodie")) {
+                            cart.removeProduct(hoodie);
+                            System.out.println("Hoodie removed from cart");
+                        } else if (productNameR.equalsIgnoreCase("tshirt")) {
+                            cart.removeProduct(tshirt);
+                            System.out.println("T-shirt removed from cart");
+                        } else {
+                            System.out.println("Sorry, we can't find the specified item");
+                        }
+                        break;
 
-                            case 4:
-                                System.out.println("View shopping cart");
-                                cart.getProducts();
-                                System.out.println("Your shopping cart contains: " + products);
-                                break;
+                    case 3:
+                        System.out.println("View shopping cart");
+                        cart.getProducts();
+                        System.out.println("Your shopping cart contains: " + products);
+                        break;
 
-                                case 5:
-                                    System.out.println("See the total cost");
-                                    cart.calculateTotalCost();
-                                    System.out.println("The total cost is: " );
-                                    break;
+                    case 4:
+                        System.out.println("See the total cost");
 
-                                    case 6:
-                                        System.out.println("Thank you for shopping with us!");
+                        System.out.println("The total cost is: " + cart.calculateTotalCost());
+                        break;
 
+                    case 5:
+                        customer.placeOrder(cart);
+                        System.out.println("Thank you for shopping with us!");
+                        break;
 
-            }
+                    case 6:
+                        System.out.println("Your order history: " + customer.getOrderhistory());
+                        break;
+
+                    default:
+                        System.out.println("That was a doozy!");
+
+                }
+
+            }   while (choice != 0);
+            System.out.println("Goodbye, hope to see you again!");
         }
 
     }
+}
 

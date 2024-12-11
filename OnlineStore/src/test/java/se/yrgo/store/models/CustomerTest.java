@@ -8,7 +8,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CustomerTest {
-Customer testCustomer = new Customer("1", "Malin Sundberg", "malin@sundberg.se");
+Customer testCustomer = new Customer("Malin Sundberg", "malin@sundberg.se");
 Product testProduct = new Product(1, "Sweater", 500, 1);
 Product testProduct2 = new Product(2, "Pants", 600, 1);
 ShoppingCart testCart = new ShoppingCart();
@@ -47,6 +47,6 @@ List<Product> testOrderhistory = new ArrayList<>();
 
     @Test
     public void customerWithInvalidEmailTest() {
-        assertThrows(IllegalArgumentException.class, () -> new Customer("1", "Malin", "malinsundberg.se"));
+        assertThrows(IllegalArgumentException.class, () -> new Customer("Malin", "malinsundberg.se"));
     }
 }

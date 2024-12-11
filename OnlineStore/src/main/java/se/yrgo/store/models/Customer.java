@@ -9,13 +9,11 @@ import java.util.List;
  * @author Malin Sundberg
  */
 public class Customer {
-    private String customerID;
     private String name;
     private String email;
     private List<Product> orderhistory;
 
-    public Customer(String customerID, String name, String email) {
-        this.customerID = customerID;
+    public Customer(String name, String email) {
         this.name = name;
         if(email != null && email.contains("@")) {
             this.email = email;
@@ -28,7 +26,6 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "customerID='" + customerID + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", orderhistory=" + orderhistory +
