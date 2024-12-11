@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CustomerTest {
 Customer testCustomer = new Customer("1", "Malin Sundberg", "malin@sundberg.se");
-Product testProduct = new Product("001", "Sweater", 500);
-Product testProduct2 = new Product("002", "Pants", 600);
+Product testProduct = new Product(1, "Sweater", 500, 1);
+Product testProduct2 = new Product(2, "Pants", 600, 1);
 ShoppingCart testCart = new ShoppingCart();
 List<Product> testOrderhistory = new ArrayList<>();
 
@@ -19,10 +19,10 @@ List<Product> testOrderhistory = new ArrayList<>();
         testCart.addProduct(testProduct);
         testCart.addProduct(testProduct2);
         testCustomer.placeOrder(testCart);
-        List<Product> actual = testOrderhistory.addAll(testCart.getProducts());
+        testOrderhistory.addAll(testCart.getProducts());
         List<Product> expected = new ArrayList<>(List.of(testProduct, testProduct2));
-        assertEquals(expected, actual);
-        assertEquals(2, actual.size());
+        assertEquals(expected, testOrderhistory);
+        assertEquals(2, testOrderhistory.size());
 
     }
 

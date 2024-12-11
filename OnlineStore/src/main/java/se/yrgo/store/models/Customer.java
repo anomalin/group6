@@ -44,8 +44,8 @@ public class Customer {
     }
 
     /**
-     * placeOrder allows the user to take a ShoppingCart and it's contents to
-     * finalize a purchase.
+     * the placeOrder method allows the user to take a ShoppingCart as a parameter
+     * and it's contents to finalize a purchase.
      * @param cart
      */
     public void placeOrder(ShoppingCart cart) {
