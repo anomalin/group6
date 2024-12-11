@@ -54,15 +54,15 @@ public class Main {
                     case 2:
                         System.out.println("Add a new product");
                         System.out.println("Please enter the name of the product:");
-                        String product  = scanner.next();
-                        cart.addProduct(jeans);
+                        String name  = scanner.next();
+                        cart.addProduct(product);
                         break;
 
                         case 3:
                             System.out.println("Remove a product");
                             System.out.println("Please enter the name of the product:");
                             String name1 = scanner.nextLine();
-                            cart.removeProduct(jeans);
+                            cart.removeProduct();
                             break;
 
                             case 4:
