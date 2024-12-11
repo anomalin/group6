@@ -2,10 +2,13 @@ package se.yrgo.store.models;
 
 public class Product {
 
+    /**
+     * class that determines the objects properties.
+     */
     private int productId;
     private String name;
     private double price;
-    private int quantity;
+    private int stockQuantity;
 
     public String getName() {
         return name;
@@ -19,19 +22,35 @@ public class Product {
         return price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getStockQuantity() {
+        return stockQuantity;
     }
 
+    /**
+     * Constructor to initialize a new object.
+     */
     public Product(int productId, String name, double price, int quantity) {
         this.productId = productId;
         this.name = name;
         this.price = price;
-        this.quantity = quantity;
+        this.stockQuantity = stockQuantity;
     }
 
+    /**
+     *
+     * @return Method to return total value of a specified product.
+     */
     public double totalValue() {
-        double theTotalValue = price * quantity;
-        return theTotalValue;
+        return price * stockQuantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", stockQuantity=" + stockQuantity +
+                '}';
     }
 }

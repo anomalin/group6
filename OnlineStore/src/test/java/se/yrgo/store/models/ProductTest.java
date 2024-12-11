@@ -8,8 +8,8 @@ public class ProductTest {
 
     @Test
     void calculateValueOfProduct() {
-        Product product = new Product(1212, "Jeans", 599.90, 155);
+        Product product = new Product(1212, "Jeans", 599.90, 15);
         double result = product.totalValue();
-        assertEquals(92984.50, result);
+        assertEquals(8998.50, result);
     }
 }
