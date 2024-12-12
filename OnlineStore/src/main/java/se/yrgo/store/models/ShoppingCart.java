@@ -57,7 +57,7 @@ public class ShoppingCart {
     public double calculateTotalCost() {
         double totalCost = 0.0;
         for (Product product : products) {
-            totalCost += product.getPrice() * product.getStockQuantity();
+            totalCost += product.getPrice();
         }
         return totalCost;
     }
@@ -67,6 +67,7 @@ public class ShoppingCart {
      * @return a list of products currently in the cart
      */
     public List<Product> getProducts() {
-        return new ArrayList<>(products);
+
+            return new ArrayList<>(products);
     }
 }

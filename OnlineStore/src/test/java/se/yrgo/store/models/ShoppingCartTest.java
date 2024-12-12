@@ -18,8 +18,8 @@ public class ShoppingCartTest {
     public void setUp() {
         cart = new ShoppingCart();
         product1 = new Product(1, "Jeans", 599.90, 1);
-        product2 = new Product(2, "Shirt", 649.50, 2);
-        product3 = new Product(3, "Undershirt", 149.00, 3);
+        product2 = new Product(2, "Shirt", 649.50, 1);
+        product3 = new Product(3, "Undershirt", 149.00, 1);
     }
 
     /**
@@ -63,9 +63,9 @@ public class ShoppingCartTest {
         cart.addProduct(product2);
         cart.addProduct(product3);
 
-        //599.90 + 2*649.50 + 3*149 = 2345.90
+        //599.90 + 649.50 + 149 = 1398.4
         double totalCost = cart.calculateTotalCost();
-        assertEquals(2345.90, totalCost, 0.1,"Total cost should be 2345.90");
+        assertEquals(1398.4, totalCost, 0.1,"Total cost should be 1398.4");
 
     }
 

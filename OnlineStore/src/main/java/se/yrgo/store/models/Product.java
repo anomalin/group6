@@ -1,5 +1,8 @@
 package se.yrgo.store.models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Product {
 
     /**
@@ -9,6 +12,7 @@ public class Product {
     private String name;
     private double price;
     private int stockQuantity;
+
 
     public String getName() {
         return name;
@@ -29,7 +33,7 @@ public class Product {
     /**
      * Constructor to initialize a new object.
      */
-    public Product(int productId, String name, double price, int quantity) {
+    public Product(int productId, String name, double price, int stockQuantity) {
         this.productId = productId;
         this.name = name;
         this.price = price;
@@ -46,12 +50,8 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "productId=" + productId +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", stockQuantity=" + stockQuantity +
-                '}';
+        return "Product: " + name +
+                ", price: " + price + ". ";
     }
 }
 
