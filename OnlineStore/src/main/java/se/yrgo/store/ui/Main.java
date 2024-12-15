@@ -76,11 +76,15 @@ public class Main {
                         String productNameR = scanner.nextLine().toLowerCase();
                         Product productToRemove = products.get(productNameR);
                         if (productToRemove != null) {
+                            if (cart.getProducts().contains(productToRemove)) {
                             cart.removeProduct(productToRemove);
                             System.out.println(productNameR + " removed from cart.");
+                            } else {
+                                System.out.println("Sorry, we can't find the specified item in your cart");
+                            }
                         } else {
-                            System.out.println("Sorry, we can't find the specified item in your cart");
-                        }
+                                System.out.println("Sorry, we can't find the specified item in our stock.");
+                            }
                         break;
 
                     case 3:
