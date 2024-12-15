@@ -9,11 +9,14 @@ import java.util.List;
  * @author Malin Sundberg
  */
 public class Customer {
+    private int customerId;
+    private static int customerIdCounter = 1;
     private String name;
     private String email;
     private List<Product> orderhistory;
 
     public Customer(String name, String email) {
+        this.customerId = customerIdCounter++;
         this.name = name;
         if(email != null && email.contains("@")) {
             this.email = email;
@@ -21,15 +24,6 @@ public class Customer {
             throw new IllegalArgumentException("Not a valid email address.");
         }
         this.orderhistory = new ArrayList<>();
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", orderhistory=" + orderhistory +
-                '}';
     }
 
     /**
